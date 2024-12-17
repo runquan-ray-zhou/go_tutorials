@@ -45,5 +45,27 @@ func main() {
 	TotalCount := 100        // Exported variable (PascalCase)
 	fmt.Println(userName, TotalCount)
 
+	// 	2. Basic Data Types
+	// 2.1 Numbers
+	// Go has the following numeric types:
 
+	// int (whole numbers)
+	// float32 and float64 (decimal numbers)
+
+	    // Integers
+		var integerNum int = 42
+		fmt.Printf("Integer: %d\n", integerNum)
+	
+		// Floats
+		var floatNum float64 = 3.14
+		scientificNotation := 2.5e-3 // 2.5 * 10^-3
+		fmt.Printf("Float: %.2f\n", floatNum) // the number after the pointer indicates the number of decimal places
+		fmt.Printf("Scientific notation: %.5f\n", scientificNotation)
+
+	// 		Summary of Format Verbs
+	// %d: Decimal integer (base 10).
+	// %f: Floating-point number with six decimal places (default).
+	// %.Nf: Floating-point number with N decimal places.
+	// %e: Scientific notation (e.g., 1.23e+06).
+	// These format verbs help control how data is displayed, making fmt.Printf a powerful tool for formatted output in Go.
 }
