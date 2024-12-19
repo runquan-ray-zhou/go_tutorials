@@ -28,8 +28,8 @@ func main() {
 	var y string = "Hello, World!"
 	
 	// Type inference
-	a := 5
-	b := "Hello, Go!"
+	// a := 5
+	// b := "Hello, Go!"
 	
 	fmt.Println(x)
 	fmt.Println(y)
@@ -68,4 +68,24 @@ func main() {
 	// %.Nf: Floating-point number with N decimal places.
 	// %e: Scientific notation (e.g., 1.23e+06).
 	// These format verbs help control how data is displayed, making fmt.Printf a powerful tool for formatted output in Go.
+
+	// 	2.2 Floating-Point Precision
+	// Go uses float32 or float64 for floats. There can still be precision limitations:
+
+	result := 1.2 + 2.3
+	fmt.Printf("Result: %.20f\n", result) // Display with high precision
+
+	// 	2.3 Arithmetic Operations
+	// Go supports basic arithmetic operations:
+
+	a, b := 5, 3
+
+fmt.Printf("Addition: %d\n", a+b)
+fmt.Printf("Subtraction: %d\n", a-b)
+fmt.Printf("Multiplication: %d\n", a*b)
+fmt.Printf("Division: %.2f\n", float64(a)/float64(b)) // Convert to float
+fmt.Printf("Integer Division: %d\n", a/b)            // Truncates result
+fmt.Printf("Modulo: %d\n", a%b)
+fmt.Printf("Exponentiation: %.0f\n", float64(a)*float64(a)*float64(a)) // Go doesn't support **; use math.Pow
+
 }
