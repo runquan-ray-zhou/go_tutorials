@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // func main() {
 // 	fmt.Println("Hello World")
@@ -24,17 +27,17 @@ func main() {
 	// In Go, variables must have their types either explicitly declared or inferred by the compiler. The var keyword is used, and shorthand (:=) can infer the type during assignment.
 
 	// Explicit type declaration
-	var x int = 5
-	var y string = "Hello, World!"
+	// var x int = 5
+	// var y string = "Hello, World!"
 	
 	// Type inference
 	// a := 5
 	// b := "Hello, Go!"
 	
-	fmt.Println(x)
-	fmt.Println(y)
-	fmt.Println(a)
-	fmt.Println(b)
+	// fmt.Println(x)
+	// fmt.Println(y)
+	// fmt.Println(a)
+	// fmt.Println(b)
 
 	// 	1.2 Naming Conventions
 	// Go uses camelCase for variable names and PascalCase for exported names (public).
@@ -80,12 +83,92 @@ func main() {
 
 	a, b := 5, 3
 
-fmt.Printf("Addition: %d\n", a+b)
-fmt.Printf("Subtraction: %d\n", a-b)
-fmt.Printf("Multiplication: %d\n", a*b)
-fmt.Printf("Division: %.2f\n", float64(a)/float64(b)) // Convert to float
-fmt.Printf("Integer Division: %d\n", a/b)            // Truncates result
-fmt.Printf("Modulo: %d\n", a%b)
-fmt.Printf("Exponentiation: %.0f\n", float64(a)*float64(a)*float64(a)) // Go doesn't support **; use math.Pow
+	fmt.Printf("Addition: %d\n", a+b)
+	fmt.Printf("Subtraction: %d\n", a-b)
+	fmt.Printf("Multiplication: %d\n", a*b)
+	fmt.Printf("Division: %.2f\n", float64(a)/float64(b)) // Convert to float
+	fmt.Printf("Integer Division: %d\n", a/b)            // Truncates result
+	fmt.Printf("Modulo: %d\n", a%b)
+	fmt.Printf("Exponentiation: %.0f\n", float64(a)*float64(a)*float64(a)) // Go doesn't support **; use math.Pow
 
+	// 3. Booleans
+	// 3.1 Truthy and Falsy Values
+	// Go has no concept of truthy/falsy. Booleans are explicitly true or false. Other types (like 0, nil, empty strings) do not automatically evaluate to false.
+
+	emptySlice := []int{}
+	emptyMap := map[string]string{}
+
+	if len(emptySlice) == 0 {
+		fmt.Println("Empty slice is falsy") // Explicit check
+	}
+
+	if len(emptyMap) == 0 {
+		fmt.Println("Empty map is falsy")
+	}
+
+	// 	3.2 Equality Operators
+	// Go strictly enforces type matching during comparisons:
+
+	fmt.Println(1 == 1)       // true
+	fmt.Println(1 == '1')     // Compilation error: type mismatch
+	fmt.Println(1 == true)    // Compilation error: invalid operation
+
+	// 	4. Strings
+	// 4.1 String Literals
+	// Go supports double quotes (") for string literals. Multiline strings use backticks (`).
+
+	singleLine := "Hello, World!"
+	multiLine := `This is a
+	multi-line string`
+
+	fmt.Println(singleLine)
+	fmt.Println(multiLine)
+
+	// 	4.2 String Indexing and Slicing
+	// Strings in Go are immutable and indexed by bytes, not runes (for Unicode).
+
+	text := "Golang"
+
+	// Indexing
+	fmt.Printf("First character: %c\n", text[0])
+	fmt.Printf("Last character: %c\n", text[len(text)-1])
+
+	// Slicing
+	fmt.Println(text[0:3]) // "Gol" (up to, but not including, index 3)
+
+	// Reversing a string requires converting it to a rune slice since Go doesn't provide built-in reverse:
+
+	runes := []rune(text)
+	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
+		runes[i], runes[j] = runes[j], runes[i]
+	}
+	fmt.Println(string(runes)) // Reverse the string
+
+	// 	4.3 String Formatting
+	// Go uses the fmt package for string formatting. Printf is similar to f-strings in Python:
+
+	name := "Alice"
+	age := 30
+
+	fmt.Printf("My name is %s and I am %d years old.\n", name, age)
+
+	// Expressions
+	x, y := 10, 20
+	fmt.Printf("The sum of %d and %d is %d\n", x, y, x+y)
+	
 }
+
+	// 	String Methods
+	// Use Go's strings package for common string manipulations:
+	
+	func string() {
+		s := "  Hello, World!  "
+	
+		fmt.Println(strings.ToUpper(s))
+		fmt.Println(strings.ToLower(s))
+		fmt.Println(strings.TrimSpace(s))
+		fmt.Println(strings.Replace(s, "Hello", "Goodbye", 1))
+	
+		split := strings.Split(s, ",")
+		fmt.Println(split)
+	}
