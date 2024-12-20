@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 // func main() {
@@ -155,20 +154,63 @@ func main() {
 	// Expressions
 	x, y := 10, 20
 	fmt.Printf("The sum of %d and %d is %d\n", x, y, x+y)
+
+	// Arrays
+	// var arr1 = [3]int{1,2,3}
+	// arr2 := [5]int{4,5,6,7,8}
+  
+	// fmt.Println(arr1)//[1 2 3]
+	// fmt.Println(arr2)//[4 5 6 7 8]
+
+	// var arr1 = [...]int{1,2,3}
+	// arr2 := [...]int{4,5,6,7,8}
+  
+	// fmt.Println(arr1)//[1 2 3]
+	// fmt.Println(arr2)//[4 5 6 7 8]
 	
+	var cars = [4]string{"Volvo", "BMW", "Ford", "Mazda"}
+	fmt.Print(cars)//[Volvo BMW Ford Mazda]
+
+	// prices := [3]int{10,20,30}
+
+	// fmt.Println(prices[0]) //10
+	// fmt.Println(prices[2]) //30
+
+	prices := [3]int{10,20,30}
+
+	prices[2] = 50
+	fmt.Println(prices)//[10 20 50]
+
+	// arr1 := [5]int{} //not initialized
+	// arr2 := [5]int{1,2} //partially initialized
+	// arr3 := [5]int{1,2,3,4,5} //fully initialized
+  
+	// fmt.Println(arr1) //[0 0 0 0 0]
+	// fmt.Println(arr2) //[1 2 0 0 0]
+	// fmt.Println(arr3) //[1 2 3 4 5]
+
+	arr1 := [5]int{1:10,2:40} //This example initializes only the second and third elements of the array: 
+
+	fmt.Println(arr1) //[0 10 40 0 0]
+	// The len() function is used to find the length of an array:
+	// arr1 := [4]string{"Volvo", "BMW", "Ford", "Mazda"}
+	// arr2 := [...]int{1,2,3,4,5,6}
+  
+	// fmt.Println(len(arr1)) //4
+	// fmt.Println(len(arr2)) //6
 }
 
 	// 	String Methods
 	// Use Go's strings package for common string manipulations:
 	
-	func string() {
-		s := "  Hello, World!  "
+	// func string() {
+	// 	s := "  Hello, World!  "
 	
-		fmt.Println(strings.ToUpper(s))
-		fmt.Println(strings.ToLower(s))
-		fmt.Println(strings.TrimSpace(s))
-		fmt.Println(strings.Replace(s, "Hello", "Goodbye", 1))
+	// 	fmt.Println(strings.ToUpper(s))
+	// 	fmt.Println(strings.ToLower(s))
+	// 	fmt.Println(strings.TrimSpace(s))
+	// 	fmt.Println(strings.Replace(s, "Hello", "Goodbye", 1))
 	
-		split := strings.Split(s, ",")
-		fmt.Println(split)
-	}
+	// 	split := strings.Split(s, ",")
+	// 	fmt.Println(split)
+	// }
